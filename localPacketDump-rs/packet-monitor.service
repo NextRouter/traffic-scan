@@ -1,0 +1,18 @@
+[Unit]
+Description=Packet Traffic Monitor for eth2 Interface
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/Users/vreba/Program/packetloss-traffic-scan
+ExecStart=/Users/vreba/Program/packetloss-traffic-scan/target/release/packet_monitor
+Restart=on-failure
+RestartSec=5
+
+# ログ設定
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

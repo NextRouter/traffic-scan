@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  # ローカルパケットダンプ監視
+  - job_name: "localpacketdump"
+    scrape_interval: 1s
+    static_configs:
+      - targets: ["localhost:59122"]
+
+  # Prometheus 自体の監視（オプション）
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["localhost:9090"]
